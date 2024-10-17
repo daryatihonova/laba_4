@@ -6,7 +6,16 @@
 <body>
     <h3>Опрос</h3>
     <h4>Для продолжения необходимо ответить на все вопросы</h4>
-       
+    
+    <!-- Кнопка для входа -->
+    <div style="text-align: right;">
+        <form action="/login" method="get">
+            <input type="submit" value="Вход" />
+        </form>
+    </div>
+
+
+
     <form asp-controller="question" asp-action="submit">
         <ol type="1">
             @foreach (var question in ViewBag.Questions)

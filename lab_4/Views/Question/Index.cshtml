@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>Опрос</h3>
+    <h4>Для продолжения необходимо ответить на все вопросы</h4>
+       
+    <form asp-controller="question" asp-action="submit">
+        <ol type="1">
+            @foreach (var question in ViewBag.Questions)
+            {
+                <li>
+                    @question.Content
+                    <input type="hidden" name="questionId" value="@question.Id" />
+                    <ol type="a">
+                        @foreach (var answer in question.Answers)
+                        {
+                            <li>
+                                <input type="radio" name="question_@question.Id" value="@answer.Id" />
+                                @answer.Content
+                            </li>
+                        }
+                    </ol>
+
+                </li>
+            }
+        </ol>
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
